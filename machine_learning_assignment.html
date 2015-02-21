@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Machine learning assignment</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Machine learning assignment</h1>
+
+<p>The assignment was to predict the quality of barbell lifts according to measurements arranged in a test data set, after creating a model based on similar observations arranged in a training data set. I first arranged the data so that variables comprised of NA values are removed. I then divided the data into a training set, including 70% of the data, and a test set, including 30% of the data to be used for evaluating the model.
+The approach for predicting the actions quality was by using a &#39;Random Forest&#39; classification model. This model was employed on K-fold cross validation set with 5 cross-validations.
+After the model was established I predicted the left aside test set (comprising 30% of the original training data base) to evaluate the out of sample error. 
+The following Confusion Matrix give estimates to the model performance:  </p>
+
+<table><thead>
+<tr>
+<th>Prediction</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>1555</td>
+<td>104</td>
+<td>25</td>
+<td>19</td>
+<td>33</td>
+</tr>
+<tr>
+<td>B</td>
+<td>69</td>
+<td>887</td>
+<td>76</td>
+<td>31</td>
+<td>123</td>
+</tr>
+<tr>
+<td>C</td>
+<td>7</td>
+<td>113</td>
+<td>911</td>
+<td>101</td>
+<td>44</td>
+</tr>
+<tr>
+<td>D</td>
+<td>43</td>
+<td>33</td>
+<td>11</td>
+<td>800</td>
+<td>65</td>
+</tr>
+<tr>
+<td>E</td>
+<td>0</td>
+<td>2</td>
+<td>3</td>
+<td>13</td>
+<td>817</td>
+</tr>
+</tbody></table>
+
+<p>Overall Statistics</p>
+
+<pre><code>           Accuracy : 0.8445         
+             95% CI : (0.835, 0.8537)
+No Information Rate : 0.2845         
+P-Value [Acc &gt; NIR] : &lt; 2.2e-16      
+
+              Kappa : 0.8031         
+</code></pre>
+
+<p>Mcnemar&#39;s Test P-Value : &lt; 2.2e-16      </p>
+
+<p>Statistics by Class:  </p>
+
+<table><thead>
+<tr>
+<th></th>
+<th>Class: A</th>
+<th>Class: B</th>
+<th>Class: C</th>
+<th>Class: D</th>
+<th>Class: E</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Sensitivity</td>
+<td>0.9289</td>
+<td>0.7788</td>
+<td>0.8879</td>
+<td>0.8299</td>
+<td>0.7551</td>
+</tr>
+<tr>
+<td>Specificity</td>
+<td>0.9570</td>
+<td>0.9370</td>
+<td>0.9455</td>
+<td>0.9691</td>
+<td>0.9963</td>
+</tr>
+<tr>
+<td>Pos Pred Value</td>
+<td>0.8957</td>
+<td>0.7479</td>
+<td>0.7747</td>
+<td>0.8403</td>
+<td>0.9784</td>
+</tr>
+<tr>
+<td>Neg Pred Value</td>
+<td>0.9713</td>
+<td>0.9464</td>
+<td>0.9756</td>
+<td>0.9668</td>
+<td>0.9475</td>
+</tr>
+<tr>
+<td>Prevalence</td>
+<td>0.2845</td>
+<td>0.1935</td>
+<td>0.1743</td>
+<td>0.1638</td>
+<td>0.1839</td>
+</tr>
+<tr>
+<td>Detection Rate</td>
+<td>0.2642</td>
+<td>0.1507</td>
+<td>0.1548</td>
+<td>0.1359</td>
+<td>0.1388</td>
+</tr>
+<tr>
+<td>Detection Prevalence</td>
+<td>0.2950</td>
+<td>0.2015</td>
+<td>0.1998</td>
+<td>0.1618</td>
+<td>0.1419</td>
+</tr>
+<tr>
+<td>Balanced Accuracy</td>
+<td>0.9430</td>
+<td>0.8579</td>
+<td>0.9167</td>
+<td>0.8995</td>
+<td>0.8757</td>
+</tr>
+</tbody></table>
+
+<p>By the model accuracy (84%) I can evaluate the out of sample error to be around 80% (assuming some over-fitting of the model).
+The actual success rate of the model in the 20 cases test data set was 75%. </p>
+
+</body>
+
+</html>
+

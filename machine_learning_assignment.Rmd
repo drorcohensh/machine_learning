@@ -1,0 +1,40 @@
+Machine learning assignment
+========================================================
+The assignment was to predict the quality of barbell lifts according to measurements arranged in a test data set, after creating a model based on similar observations arranged in a training data set. I first arranged the data so that variables comprised of NA values are removed. I then divided the data into a training set, including 70% of the data, and a test set, including 30% of the data to be used for evaluating the model.
+The approach for predicting the actions quality was by using a 'Random Forest' classification model. This model was employed on K-fold cross validation set with 5 cross-validations.
+After the model was established I predicted the left aside test set (comprising 30% of the original training data base) to evaluate the out of sample error. 
+The following Confusion Matrix give estimates to the model performance:  
+
+Prediction  |  A  |  B |   C  |  D |   E |
+---------- | --- | --- | --- | --- | --- |
+         A | 1555 | 104 |  25 |  19 |  33
+         B |  69 | 887 |  76 |  31 | 123
+         C  |  7 | 113 | 911 | 101  | 44
+         D |  43 |  33 |  11 | 800 |  65
+         E  |  0  |  2  |  3 |  13 | 817
+
+Overall Statistics
+                                         
+               Accuracy : 0.8445         
+                 95% CI : (0.835, 0.8537)
+    No Information Rate : 0.2845         
+    P-Value [Acc > NIR] : < 2.2e-16      
+                                         
+                  Kappa : 0.8031         
+ Mcnemar's Test P-Value : < 2.2e-16      
+
+Statistics by Class:  
+
+                     | Class: A | Class: B | Class: C | Class: D | Class: E
+-------------------- | -------- | -------- | -------- | -------- | -------- 
+Sensitivity          |  0.9289 |  0.7788 |  0.8879 |  0.8299  | 0.7551
+Specificity          |  0.9570  | 0.9370 |  0.9455  | 0.9691  | 0.9963
+Pos Pred Value       |  0.8957  | 0.7479  | 0.7747 |  0.8403  | 0.9784
+Neg Pred Value       |  0.9713  | 0.9464  | 0.9756 |  0.9668  | 0.9475
+Prevalence            | 0.2845 |  0.1935 |  0.1743 |  0.1638 |  0.1839
+Detection Rate       |  0.2642  | 0.1507 |  0.1548 |  0.1359 |  0.1388
+Detection Prevalence |  0.2950  | 0.2015 |  0.1998 |  0.1618  | 0.1419
+Balanced Accuracy   |   0.9430  | 0.8579  | 0.9167 |  0.8995  | 0.8757
+ 
+By the model accuracy (84%) I can evaluate the out of sample error to be around 80% (assuming some over-fitting of the model).
+The actual success rate of the model in the 20 cases test data set was 75%. 
